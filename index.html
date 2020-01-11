@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+
+
+</head>
+
+<style>
+    * {
+
+        margin: 0;
+        padding: 0;
+    }
+</style>
+
+
+<body>
+
+    <script>
+        var response;
+
+        fetch("https://oddsapi-io-odds-data.p.rapidapi.com/odds", {
+                "method": "GET",
+                "headers": {
+                    "x-rapidapi-host": "oddsapi-io-odds-data.p.rapidapi.com",
+                    "x-rapidapi-key": "5ed62016c5msh63faed07f697299p14d927jsn84df5350c81d"
+                }
+            })
+
+
+            .then(response => {
+                return response.json()
+            })
+            .then(response => {
+
+
+                response.forEach(function (value) {
+
+                    var Home = {
+                        bodyElement: document.getElementsByTagName('body')[0],
+
+                        homeDiv: document.createElement('div'),
+
+                    }
+                    var Away = {
+                        bodyElement: document.getElementsByTagName('body')[0],
+
+                        homeDiv: document.createElement('div'),
+
+                    }
+
+                    var Start_time = {
+
+
+                        bodyElement: document.getElementsByTagName('body')[0],
+
+                        homeDiv: document.createElement('div'),
+
+                    }
+
+                    var add = {
+                        AddElement: function (attr, idName, text) {
+
+                            this.bodyElement.appendChild(this.homeDiv);
+
+
+                            this.homeDiv.setAttribute(attr, idName);
+                            this.homeDiv.innerHTML = text;
+
+
+                        }
+                    }
+
+
+                    add.AddElement.call(Home, 'class', 'team', '<div class="team__data" >' +
+                        '<div class="sport_name" >' + value.sport.name + '</div>' +
+                        '<div class="league" >' + value.league.name +
+                        '</div>' + ' <div class="home" >' +
+                        value.event.home + '</div>' + '<div class="away">' + value.event.away +
+                        '</div>' + '<div  class="start_time"> ' + value.event.start_time + '</div>' +
+                        '</div>' + '<div>' +
+                        '</div>'
+
+                    );
+
+
+
+
+
+                })
+
+                var styleElements = {
+                    home: document.getElementsByClassName('home'),
+                    away: document.getElementsByClassName('away'),
+                    start_time: document.getElementsByClassName('start_time'),
+                    team: document.getElementsByClassName('team'),
+                    league: document.getElementsByClassName('league'),
+                    sport_name: document.getElementsByClassName('sport_name'),
+                    team__data: document.getElementsByClassName('team__data'),
+
+                    addStyleTo_team__data: function () {
+                        for (var i = 0; i < this.team__data.length; i++) {
+
+                            this.team__data[i].style.display = 'flex';
+                            this.team__data[i].style.backgroundColor = '#FFE1AF  ';
+                        }
+
+
+                    },
+
+
+                    addStyleTo_sport_name: function () {
+                        for (var i = 0; i < this.sport_name.length; i++) {
+
+
+                            this.sport_name[i].style.textAlign = 'center';
+
+                        }
+
+
+                    },
+
+                    addStyleTo_league: function () {
+                        for (var i = 0; i < this.league.length; i++) {
+
+                            this.league[i].style.color = '#656565';
+                            this.league[i].style.width = '25%';
+                            this.league[i].style.textAlign = 'center';
+                        }
+
+                    },
+
+
+
+                    addStyleTo_home: function () {
+                        for (var i = 0; i < this.home.length; i++) {
+
+                            this.home[i].style.color = '#656565';
+                            this.home[i].style.width = '25%';
+                            this.home[i].style.textAlign = 'center';
+                        }
+                    },
+                    addStyleTo_away: function () {
+                        for (var i = 0; i < this.away.length; i++) {
+
+                            this.away[i].style.color = '#656565';
+                            this.away[i].style.width = '25%';
+                            this.away[i].style.textAlign = 'center'
+                        }
+
+
+
+                    },
+
+                    addStyleTo_start_time: function () {
+                        for (var i = 0; i < this.start_time.length; i++) {
+
+                            this.start_time[i].style.color = '#656565';
+                            this.start_time[i].style.width = '25%';
+                            this.start_time[i].style.textAlign = 'center';
+                        }
+
+
+
+                    },
+                    addStyleTo_team: function () {
+                        for (var i = 0; i < this.team.length; i++) {
+
+                            this.team[i].style.color = '#656565';
+                            this.team[i].style.textAlign = 'center';
+                            this.team[i].style.paddingTop = '20px';
+                            this.team[i].style.paddingBottom = '20px';
+                            this.team[i].style.backgroundColor = '#FFE1AF'
+                            this.team[i].style.border = '1px solid #D1D1D1'
+
+                        }
+
+
+                    }
+
+                }
+
+
+
+
+
+
+                styleElements.addStyleTo_team();
+                styleElements.addStyleTo_league();
+                styleElements.addStyleTo_home();
+                styleElements.addStyleTo_away();
+                styleElements.addStyleTo_start_time();
+                styleElements.addStyleTo_sport_name();
+                styleElements.addStyleTo_team__data()
+            })
+
+
+
+
+
+
+
+
+
+
+
+
+
+            .catch(err => {
+                console.log(err);
+            });
+    </script>
+
+</body>
+
+</html>
