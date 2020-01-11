@@ -6,10 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
-
-
 </head>
-
 <style>
     * {
 
@@ -17,8 +14,6 @@
         padding: 0;
     }
 </style>
-
-
 <body>
 
     <script>
@@ -31,7 +26,6 @@
                     "x-rapidapi-key": "5ed62016c5msh63faed07f697299p14d927jsn84df5350c81d"
                 }
             })
-
 
             .then(response => {
                 return response.json()
@@ -76,7 +70,6 @@
                         }
                     }
 
-
                     add.AddElement.call(Home, 'class', 'team', '<div class="team__data" >' +
                         '<div class="sport_name" >' + value.sport.name + '</div>' +
                         '<div class="league" >' + value.league.name +
@@ -87,10 +80,6 @@
                         '</div>'
 
                     );
-
-
-
-
 
                 })
 
@@ -109,11 +98,9 @@
                             this.team__data[i].style.display = 'flex';
                             this.team__data[i].style.backgroundColor = '#FFE1AF  ';
                         }
-
-
+                        
                     },
-
-
+                    
                     addStyleTo_sport_name: function () {
                         for (var i = 0; i < this.sport_name.length; i++) {
 
@@ -121,7 +108,6 @@
                             this.sport_name[i].style.textAlign = 'center';
 
                         }
-
 
                     },
 
@@ -134,8 +120,6 @@
                         }
 
                     },
-
-
 
                     addStyleTo_home: function () {
                         for (var i = 0; i < this.home.length; i++) {
@@ -152,9 +136,7 @@
                             this.away[i].style.width = '25%';
                             this.away[i].style.textAlign = 'center'
                         }
-
-
-
+                        
                     },
 
                     addStyleTo_start_time: function () {
@@ -164,9 +146,7 @@
                             this.start_time[i].style.width = '25%';
                             this.start_time[i].style.textAlign = 'center';
                         }
-
-
-
+                        
                     },
                     addStyleTo_team: function () {
                         for (var i = 0; i < this.team.length; i++) {
@@ -180,15 +160,9 @@
 
                         }
 
-
                     }
 
                 }
-
-
-
-
-
 
                 styleElements.addStyleTo_team();
                 styleElements.addStyleTo_league();
@@ -198,19 +172,7 @@
                 styleElements.addStyleTo_sport_name();
                 styleElements.addStyleTo_team__data()
             })
-
-
-
-
-
-
-
-
-
-
-
-
-
+        
             .catch(err => {
                 console.log(err);
             });
